@@ -1,0 +1,95 @@
+openapi: 3.0.4
+info:
+  title: Unix Timestamp Converter
+  description: Unix Timestamp Converter is a tool for converting between Unix timestamps and human-readable dates. It supports both seconds and milliseconds formats.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.9
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+- url: https://api.apiverve.com/
+paths:
+  /v1/unixtimestamp:
+    get:
+      summary: Convert Timestamp
+      description: Unix Timestamp Converter is a tool for converting between Unix timestamps and human-readable dates. It supports both seconds and milliseconds formats.
+      operationId: unixtimestamp
+      parameters:
+      - name: timestamp
+        in: query
+        schema:
+          type: string
+        required: false
+        description: Unix timestamp to convert (provide either timestamp or date)
+        example: '1609459200'
+      - name: date
+        in: query
+        schema:
+          type: string
+        required: false
+        description: Date string to convert (provide either timestamp or date)
+        example: 2021-01-01T00:00:00.0000000Z
+      - name: format
+        default: seconds
+        in: query
+        schema:
+          type: string
+        required: false
+        description: "Timestamp format: 'seconds', 'milliseconds', 's', or 'ms' (default: seconds)"
+        example: seconds
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: string
+                    description: data
+              example:
+                status: ok
+                error: 
+                data:
+                  timestamp: 1609459200
+                  timestamp_format: seconds
+                  iso_8601: 2021-01-01T00:00:00.0000000Z
+                  rfc_2822: Fri, 01 Jan 2021 00:00:00 GMT
+                  date: 1/1/2021
+                  time: 12:00:00 AM
+                  unix_seconds: 1609459200
+                  unix_milliseconds: 1609459200000
+                  year: 2021
+                  month: 1
+                  day: 1
+                  hour: 0
+                  minute: 0
+                  second: 0
+                  day_of_week: Friday
+                  timezone: UTC
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occured, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+- api_key: []
