@@ -1,47 +1,41 @@
 openapi: 3.0.4
 info:
   title: Unix Timestamp Converter
-  description: Unix Timestamp Converter is a tool for converting between Unix timestamps and human-readable dates. It supports both seconds and milliseconds formats.
+  description: >-
+    Unix Timestamp Converter is a tool for converting between Unix timestamps
+    and human-readable dates. It supports both seconds and milliseconds formats.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
     email: hello@apiverve.com
     url: https://apiverve.com/contact
-  version: 1.0.9
+  version: 1.0.0
 externalDocs:
   description: Learn more about APIVerve
   url: https://docs.apiverve.com?utm_source=openapi
 servers:
-- url: https://api.apiverve.com/
+  - url: https://api.apiverve.com/
 paths:
   /v1/unixtimestamp:
     get:
-      summary: Convert Timestamp
-      description: Unix Timestamp Converter is a tool for converting between Unix timestamps and human-readable dates. It supports both seconds and milliseconds formats.
+      summary: Timestamp to Date
+      description: Convert Unix timestamp to human-readable date
       operationId: unixtimestamp
       parameters:
-      - name: timestamp
-        in: query
-        schema:
-          type: string
-        required: false
-        description: Unix timestamp to convert (provide either timestamp or date)
-        example: '1609459200'
-      - name: date
-        in: query
-        schema:
-          type: string
-        required: false
-        description: Date string to convert (provide either timestamp or date)
-        example: 2021-01-01T00:00:00.0000000Z
-      - name: format
-        default: seconds
-        in: query
-        schema:
-          type: string
-        required: false
-        description: "Timestamp format: 'seconds', 'milliseconds', 's', or 'ms' (default: seconds)"
-        example: seconds
+        - name: timestamp
+          in: query
+          schema:
+            type: string
+          required: true
+          description: Unix timestamp to convert
+          example: '1609459200'
+        - name: format
+          in: query
+          schema:
+            type: string
+          required: false
+          description: Timestamp format
+          example: seconds
       responses:
         '200':
           description: Successful Response
@@ -57,15 +51,15 @@ paths:
                     type: string
                     description: error
                   data:
-                    type: string
+                    type: object
                     description: data
               example:
                 status: ok
-                error: 
+                error: null
                 data:
                   timestamp: 1609459200
                   timestamp_format: seconds
-                  iso_8601: 2021-01-01T00:00:00.0000000Z
+                  iso_8601: '2021-01-01T00:00:00Z'
                   rfc_2822: Fri, 01 Jan 2021 00:00:00 GMT
                   date: 1/1/2021
                   time: 12:00:00 AM
@@ -84,7 +78,7 @@ paths:
         '404':
           description: Requested resource was not found
         '500':
-          description: A server error has occured, try again later
+          description: A server error has occurred, try again later
 components:
   securitySchemes:
     api_key:
@@ -92,4 +86,4 @@ components:
       name: x-api-key
       in: header
 security:
-- api_key: []
+  - api_key: []
