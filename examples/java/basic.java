@@ -12,14 +12,8 @@ public class BasicExample {
         UnixTimestampConverterAPIClient client = new UnixTimestampConverterAPIClient("YOUR_API_KEY_HERE");
 
         try {
-            // Query parameters
-            Map&lt;String, Object&gt; parameters &#x3D; new HashMap&lt;&gt;();
-        parameters.put(&quot;timestamp&quot;, &quot;1609459200&quot;);
-        parameters.put(&quot;date&quot;, &quot;2021-01-01T00:00:00Z&quot;);
-        parameters.put(&quot;format&quot;, &quot;seconds&quot;);
-
-            // Execute the API request
-            APIResponse response = client.execute(parameters);
+            // Execute the API request (no parameters required)
+            APIResponse response = client.execute(null);
 
             // Check if the request was successful
             if (response.isSuccess()) {
