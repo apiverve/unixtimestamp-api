@@ -23,7 +23,10 @@ class ValidationError(UnixtimestampAPIClientError):
 
 class UnixtimestampAPIClient:
     # Validation rules for parameters (generated from schema)
-    VALIDATION_RULES = {"timestamp": {"type": "string", "required": True}, "format": {"type": "string", "required": False, "default": "seconds"}}
+    VALIDATION_RULES = {
+        "timestamp": {"type": "string", "required": True},
+        "format": {"type": "string", "required": False, "default": "seconds"}
+    }
 
     # Format validation patterns
     FORMAT_PATTERNS = {
@@ -71,18 +74,10 @@ class UnixtimestampAPIClient:
                 "API key is required. Get your API key at: https://apiverve.com"
             )
 
-        # Check format (alphanumeric, hyphens, and underscores for prefixed keys)
+        # Check format (GUID, prefixed keys like apv_xxx, or alphanumeric)
         if not re.match(r'^[a-zA-Z0-9_-]+$', api_key):
             raise UnixtimestampAPIClientError(
                 "Invalid API key format. API key should only contain letters, numbers, hyphens, and underscores. "
-                "Get your API key at: https://apiverve.com"
-            )
-
-        # Check length (at least 32 characters without hyphens/underscores)
-        trimmed_key = api_key.replace('-', '').replace('_', '')
-        if len(trimmed_key) < 32:
-            raise UnixtimestampAPIClientError(
-                "Invalid API key. API key appears to be too short. "
                 "Get your API key at: https://apiverve.com"
             )
 
