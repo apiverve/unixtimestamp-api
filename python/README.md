@@ -44,7 +44,10 @@ from apiverve_unixtimestampconverter.apiClient import UnixtimestampAPIClient
 # Initialize the client with your APIVerve API key
 api = UnixtimestampAPIClient("[YOUR_API_KEY]")
 
-query = { "timestamp": "1609459200", "format": "seconds" }
+query = {
+    "timestamp": "1609459200",
+    "format": "seconds"
+}
 
 try:
     # Make the API call
@@ -82,7 +85,10 @@ Using the API client, you can perform requests to the API.
 ###### Define Query
 
 ```python
-query = { "timestamp": "1609459200", "format": "seconds" }
+query = {
+    "timestamp": "1609459200",
+    "format": "seconds"
+}
 ```
 
 ###### Simple Request
@@ -135,7 +141,10 @@ from apiverve_unixtimestampconverter.apiClient import UnixtimestampAPIClient, Un
 
 api = UnixtimestampAPIClient("[YOUR_API_KEY]")
 
-query = { "timestamp": "1609459200", "format": "seconds" }
+query = {
+    "timestamp": "1609459200",
+    "format": "seconds"
+}
 
 try:
     result = api.execute(query)
@@ -156,7 +165,10 @@ from apiverve_unixtimestampconverter.apiClient import UnixtimestampAPIClient, Un
 
 api = UnixtimestampAPIClient("[YOUR_API_KEY]")
 
-query = { "timestamp": "1609459200", "format": "seconds" }
+query = {
+    "timestamp": "1609459200",
+    "format": "seconds"
+}
 
 try:
     result = api.execute(query)
@@ -190,7 +202,10 @@ The client supports the context manager protocol for automatic resource cleanup:
 ```python
 from apiverve_unixtimestampconverter.apiClient import UnixtimestampAPIClient, UnixtimestampAPIClientError
 
-query = { "timestamp": "1609459200", "format": "seconds" }
+query = {
+    "timestamp": "1609459200",
+    "format": "seconds"
+}
 
 # Using context manager ensures proper cleanup
 with UnixtimestampAPIClient("[YOUR_API_KEY]") as api:
@@ -216,7 +231,10 @@ from apiverve_unixtimestampconverter.apiClient import UnixtimestampAPIClient
 # Enable debug mode
 api = UnixtimestampAPIClient("[YOUR_API_KEY]", debug=True)
 
-query = { "timestamp": "1609459200", "format": "seconds" }
+query = {
+    "timestamp": "1609459200",
+    "format": "seconds"
+}
 
 # Debug information will be printed to console
 result = api.execute(query)
@@ -231,8 +249,12 @@ from apiverve_unixtimestampconverter.apiClient import UnixtimestampAPIClient
 
 api = UnixtimestampAPIClient("[YOUR_API_KEY]")
 
+query = {
+    "timestamp": "1609459200",
+    "format": "seconds"
+}
+
 try:
-    query = { "timestamp": "1609459200", "format": "seconds" }
     result = api.execute(query)
     print(result)
 finally:
