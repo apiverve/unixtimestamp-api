@@ -30,7 +30,12 @@ The Unix Timestamp Converter API provides a simple, reliable way to integrate un
 ```javascript
 async function callUnixTimestampConverterAPI() {
     try {
-        const response = await fetch('https://api.apiverve.com/v1/unixtimestamp', {
+        const params = new URLSearchParams({
+            timestamp: '1609459200',
+            format: 'seconds'
+        });
+
+        const response = await fetch(`https://api.apiverve.com/v1/unixtimestamp?${params}`, {
             method: 'GET',
             headers: {
                 'x-api-key': 'YOUR_API_KEY_HERE'
@@ -50,7 +55,7 @@ callUnixTimestampConverterAPI();
 ### Using cURL
 
 ```bash
-curl -X GET "https://api.apiverve.com/v1/unixtimestamp?param=value" \
+curl -X GET "https://api.apiverve.com/v1/unixtimestamp?timestamp=1609459200&format=seconds" \
   -H "x-api-key: YOUR_API_KEY_HERE"
 ```
 
@@ -150,7 +155,7 @@ go get github.com/apiverve/unixtimestamp-api/go
 |---------|---------|
 | **Multi-language SDKs** | Native packages for JavaScript, Python, C#, Go, and Android |
 | **Simple Integration** | Single API key authentication, consistent response format |
-| **Production Ready** | 99.9% uptime, fast response times, used by thousands of developers |
+| **Production Ready** | 99.9% uptime SLA, served from 24 global regions |
 | **Comprehensive Docs** | Full examples, OpenAPI spec, and dedicated support |
 
 ---
@@ -169,7 +174,7 @@ go get github.com/apiverve/unixtimestamp-api/go
 The Unix Timestamp Converter API is commonly used for:
 
 - **Web Applications** - Add unix timestamp converter features to your frontend or backend
-- **Mobile Apps** - Native SDKs for iOS and Android development
+- **Mobile Apps** - Native SDKs for Android development
 - **Automation** - Integrate with n8n, Zapier, or custom workflows
 - **SaaS Products** - Enhance your product with unix timestamp converter capabilities
 - **Data Pipelines** - Process and analyze data at scale
