@@ -30,7 +30,7 @@ class unixtimestampWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/unixtimestamp';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"timestamp":{"type":"string","required":true},"format":{"type":"string","required":false,"default":"seconds"}};
+        this.validationRules = {"timestamp":{"type":"string","required":true,"format":"timestamp"},"format":{"type":"string","required":false,"default":"seconds"}};
     }
 
     /**
