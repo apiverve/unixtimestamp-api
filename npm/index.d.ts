@@ -4,31 +4,43 @@ declare module '@apiverve/unixtimestamp' {
     secure?: boolean;
   }
 
+  /**
+   * Describes fields the current plan does not unlock. Locked fields arrive as null
+   * in `data`; `locked_fields` names them, using dot paths for nested fields.
+   * Absent when the plan unlocks everything.
+   */
+  export interface PremiumInfo {
+    message: string;
+    upgrade_url: string;
+    locked_fields: string[];
+  }
+
   export interface unixtimestampResponse {
     status: string;
     error: string | null;
     data: UnixTimestampConverterData;
     code?: number;
+    premium?: PremiumInfo;
   }
 
 
   interface UnixTimestampConverterData {
-      timestamp:        number;
-      timestampFormat:  string;
-      iso8601:          Date;
-      rfc2822:          string;
-      date:             string;
-      time:             string;
-      unixSeconds:      number;
-      unixMilliseconds: number;
-      year:             number;
-      month:            number;
-      day:              number;
-      hour:             number;
-      minute:           number;
-      second:           number;
-      dayOfWeek:        string;
-      timezone:         string;
+      timestamp:        number | null;
+      timestampFormat:  null | string;
+      iso8601:          Date | null;
+      rfc2822:          null | string;
+      date:             null | string;
+      time:             null | string;
+      unixSeconds:      number | null;
+      unixMilliseconds: number | null;
+      year:             number | null;
+      month:            number | null;
+      day:              number | null;
+      hour:             number | null;
+      minute:           number | null;
+      second:           number | null;
+      dayOfWeek:        null | string;
+      timezone:         null | string;
   }
 
   export default class unixtimestampWrapper {
