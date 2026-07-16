@@ -25,18 +25,21 @@ namespace APIVerve.API.UnixTimestampConverter
 
         [JsonProperty("data")]
         public Data Data { get; set; }
+
+        [JsonProperty("premium")]
+        public Premium Premium { get; set; }
     }
 
     public partial class Data
     {
         [JsonProperty("timestamp")]
-        public long Timestamp { get; set; }
+        public long? Timestamp { get; set; }
 
         [JsonProperty("timestamp_format")]
         public string TimestampFormat { get; set; }
 
         [JsonProperty("iso_8601")]
-        public DateTimeOffset Iso8601 { get; set; }
+        public DateTimeOffset? Iso8601 { get; set; }
 
         [JsonProperty("rfc_2822")]
         public string Rfc2822 { get; set; }
@@ -48,33 +51,45 @@ namespace APIVerve.API.UnixTimestampConverter
         public string Time { get; set; }
 
         [JsonProperty("unix_seconds")]
-        public long UnixSeconds { get; set; }
+        public long? UnixSeconds { get; set; }
 
         [JsonProperty("unix_milliseconds")]
-        public long UnixMilliseconds { get; set; }
+        public long? UnixMilliseconds { get; set; }
 
         [JsonProperty("year")]
-        public long Year { get; set; }
+        public long? Year { get; set; }
 
         [JsonProperty("month")]
-        public long Month { get; set; }
+        public long? Month { get; set; }
 
         [JsonProperty("day")]
-        public long Day { get; set; }
+        public long? Day { get; set; }
 
         [JsonProperty("hour")]
-        public long Hour { get; set; }
+        public long? Hour { get; set; }
 
         [JsonProperty("minute")]
-        public long Minute { get; set; }
+        public long? Minute { get; set; }
 
         [JsonProperty("second")]
-        public long Second { get; set; }
+        public long? Second { get; set; }
 
         [JsonProperty("day_of_week")]
         public string DayOfWeek { get; set; }
 
         [JsonProperty("timezone")]
         public string Timezone { get; set; }
+    }
+
+    public partial class Premium
+    {
+        [JsonProperty("message")]
+        public string Message { get; set; }
+
+        [JsonProperty("upgrade_url")]
+        public Uri UpgradeUrl { get; set; }
+
+        [JsonProperty("locked_fields")]
+        public string[] LockedFields { get; set; }
     }
 }
