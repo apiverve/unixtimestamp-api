@@ -1,13 +1,13 @@
-# [Unix Timestamp Converter API](https://apiverve.com/marketplace/unixtimestamp?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+# [Unix Timestamp Converter API](https://apiverve.com/marketplace/unixtimestamp?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 
-Unix Timestamp Converter is a tool for converting between Unix timestamps and human-readable dates. It supports both seconds and milliseconds formats.
+Unix Timestamp Converter converts Unix timestamps into formatted dates and parses ISO 8601 strings back into epoch seconds. Responses break down dates into ISO 8601, RFC 2822, simple time strings, and individual calendar components like year, month, and hour.
 
 The Unix Timestamp Converter API provides a simple, reliable way to integrate unix timestamp converter functionality into your applications. Built for developers who need production-ready unix timestamp converter capabilities without the complexity of building from scratch.
 
-**[View API Details →](https://apiverve.com/marketplace/unixtimestamp?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)**
+**[View API Details →](https://apiverve.com/marketplace/unixtimestamp?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/unixtimestamp?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+[![API Status](https://img.shields.io/badge/Status-Active-green.svg)](https://apiverve.com/marketplace/unixtimestamp?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 [![Method](https://img.shields.io/badge/Method-GET-blue.svg)](#)
 [![Platform](https://img.shields.io/badge/Platform-Multi--Platform-orange.svg)](#installation)
 
@@ -162,7 +162,7 @@ go get github.com/apiverve/unixtimestamp-api/go
 
 ## Documentation
 
-- 🏠 **API Home:** [Unix Timestamp Converter API](https://apiverve.com/marketplace/unixtimestamp?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home:** [Unix Timestamp Converter API](https://apiverve.com/marketplace/unixtimestamp?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 📚 **API Reference:** [docs.apiverve.com/ref/unixtimestamp](https://docs.apiverve.com/ref/unixtimestamp)
 - 📖 **OpenAPI Spec:** [openapi.yaml](./openapi.yaml)
 - 💡 **Examples:** [examples/](./examples/)
@@ -192,11 +192,43 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the Unix Timestamp Converter API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "timestamp": 1609459200,
+    "timestamp_format": "seconds",
+    "iso_8601": "2021-01-01T00:00:00Z",
+    "rfc_2822": "Fri, 01 Jan 2021 00:00:00 GMT",
+    "date": "1/1/2021",
+    "time": "12:00:00 AM",
+    "unix_seconds": 1609459200,
+    "unix_milliseconds": 1609459200000,
+    "year": 2021,
+    "month": 1,
+    "day": 1,
+    "hour": 0,
+    "minute": 0,
+    "second": 0,
+    "day_of_week": "Friday",
+    "timezone": "UTC"
+  }
 }
 ```
 
@@ -204,7 +236,7 @@ All responses are JSON with this structure:
 
 ## Support & Community
 
-- 🏠 **API Home**: [Unix Timestamp Converter API](https://apiverve.com/marketplace/unixtimestamp?utm_source&#x3D;github&amp;utm_medium&#x3D;readme)
+- 🏠 **API Home**: [Unix Timestamp Converter API](https://apiverve.com/marketplace/unixtimestamp?utm_source&#x3D;github&amp;utm_medium&#x3D;referral&amp;utm_content&#x3D;readme)
 - 💬 **Support**: [https://apiverve.com/contact](https://apiverve.com/contact)
 - 🐛 **Issues**: [GitHub Issues](../../issues)
 - 📖 **Documentation**: [https://docs.apiverve.com](https://docs.apiverve.com)

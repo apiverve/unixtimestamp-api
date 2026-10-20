@@ -2,8 +2,10 @@ openapi: 3.0.4
 info:
   title: Unix Timestamp Converter
   description: >-
-    Unix Timestamp Converter is a tool for converting between Unix timestamps
-    and human-readable dates. It supports both seconds and milliseconds formats.
+    Unix Timestamp Converter converts Unix timestamps into formatted dates and
+    parses ISO 8601 strings back into epoch seconds. Responses break down dates
+    into ISO 8601, RFC 2822, simple time strings, and individual calendar
+    components like year, month, and hour.
   termsOfService: https://apiverve.com/terms/
   contact:
     name: APIVerve Support
@@ -18,7 +20,7 @@ servers:
 paths:
   /v1/unixtimestamp:
     get:
-      summary: Timestamp to Date
+      summary: Unix Timestamp Converter
       description: Convert Unix timestamp to human-readable date
       operationId: unixtimestamp
       parameters:
