@@ -16,7 +16,8 @@ const api = new unixtimestampAPI({
 // Example query
 var query = {
   timestamp: "1609459200",
-  format: "seconds"
+  format: "seconds",
+  timezone: "America/New_York"
 };
 
 // Make the API request using callback

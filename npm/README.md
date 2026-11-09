@@ -1,6 +1,6 @@
 # Unix Timestamp Converter API
 
-Unix Timestamp Converter converts Unix timestamps into formatted dates and parses ISO 8601 strings back into epoch seconds. Responses break down dates into ISO 8601, RFC 2822, simple time strings, and individual calendar components like year, month, and hour.
+Unix Timestamp Converter converts Unix timestamps into formatted dates and parses ISO 8601 strings back into epoch seconds. Responses break down dates into ISO 8601, RFC 2822, simple time strings, individual calendar components like year, month and hour, plus the day of the year. Paid plans add the ISO week, and an IANA timezone to also get the same moment in local time with its UTC offset, abbreviation and daylight saving flag.
 
 [![npm version](https://img.shields.io/npm/v/@apiverve/unixtimestamp.svg)](https://www.npmjs.com/package/@apiverve/unixtimestamp)
 
@@ -58,7 +58,8 @@ Using the API is simple. All you have to do is make a request. The API will retu
 ```javascript
 var query = {
   timestamp: "1609459200",
-  format: "seconds"
+  format: "seconds",
+  timezone: "America/New_York"
 };
 
 api.execute(query, function (error, data) {
@@ -79,7 +80,8 @@ You can also use promises to make requests. The API returns a promise that you c
 ```javascript
 var query = {
   timestamp: "1609459200",
-  format: "seconds"
+  format: "seconds",
+  timezone: "America/New_York"
 };
 
 api.execute(query)
@@ -101,7 +103,8 @@ You can also use async/await to make requests. The API returns a promise that yo
 async function makeRequest() {
     var query = {
   timestamp: "1609459200",
-  format: "seconds"
+  format: "seconds",
+  timezone: "America/New_York"
 };
 
     try {
@@ -124,7 +127,7 @@ async function makeRequest() {
   "data": {
     "timestamp": 1609459200,
     "timestamp_format": "seconds",
-    "iso_8601": "2021-01-01T00:00:00Z",
+    "iso_8601": "2021-01-01T00:00:00.000Z",
     "rfc_2822": "Fri, 01 Jan 2021 00:00:00 GMT",
     "date": "1/1/2021",
     "time": "12:00:00 AM",
@@ -137,7 +140,28 @@ async function makeRequest() {
     "minute": 0,
     "second": 0,
     "day_of_week": "Friday",
-    "timezone": "UTC"
+    "timezone": "UTC",
+    "day_of_year": 1,
+    "iso_week": "2020-W53",
+    "local": {
+      "timezone": "America/New_York",
+      "iso_8601": "2020-12-31T19:00:00-05:00",
+      "date": "12/31/2020",
+      "time": "7:00:00 PM",
+      "year": 2020,
+      "month": 12,
+      "day": 31,
+      "hour": 19,
+      "minute": 0,
+      "second": 0,
+      "day_of_week": "Thursday",
+      "day_of_year": 366,
+      "iso_week": "2020-W53",
+      "utc_offset": "-05:00",
+      "utc_offset_seconds": -18000,
+      "abbreviation": "EST",
+      "is_dst": false
+    }
   }
 }
 ```

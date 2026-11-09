@@ -41,6 +41,29 @@ declare module '@apiverve/unixtimestamp' {
       second:           number | null;
       dayOfWeek:        null | string;
       timezone:         null | string;
+      dayOfYear:        number | null;
+      isoWeek:          null | string;
+      local:            Local;
+  }
+  
+  interface Local {
+      timezone:         null | string;
+      iso8601:          Date | null;
+      date:             null | string;
+      time:             null | string;
+      year:             number | null;
+      month:            number | null;
+      day:              number | null;
+      hour:             number | null;
+      minute:           number | null;
+      second:           number | null;
+      dayOfWeek:        null | string;
+      dayOfYear:        number | null;
+      isoWeek:          null | string;
+      utcOffset:        null | string;
+      utcOffsetSeconds: number | null;
+      abbreviation:     null | string;
+      isDst:            boolean | null;
   }
 
   export default class unixtimestampWrapper {
