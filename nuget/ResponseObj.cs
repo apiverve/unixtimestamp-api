@@ -79,6 +79,69 @@ namespace APIVerve.API.UnixTimestampConverter
 
         [JsonProperty("timezone")]
         public string Timezone { get; set; }
+
+        [JsonProperty("day_of_year")]
+        public long? DayOfYear { get; set; }
+
+        [JsonProperty("iso_week")]
+        public string IsoWeek { get; set; }
+
+        [JsonProperty("local")]
+        public Local Local { get; set; }
+    }
+
+    public partial class Local
+    {
+        [JsonProperty("timezone")]
+        public string Timezone { get; set; }
+
+        [JsonProperty("iso_8601")]
+        public DateTimeOffset? Iso8601 { get; set; }
+
+        [JsonProperty("date")]
+        public string Date { get; set; }
+
+        [JsonProperty("time")]
+        public string Time { get; set; }
+
+        [JsonProperty("year")]
+        public long? Year { get; set; }
+
+        [JsonProperty("month")]
+        public long? Month { get; set; }
+
+        [JsonProperty("day")]
+        public long? Day { get; set; }
+
+        [JsonProperty("hour")]
+        public long? Hour { get; set; }
+
+        [JsonProperty("minute")]
+        public long? Minute { get; set; }
+
+        [JsonProperty("second")]
+        public long? Second { get; set; }
+
+        [JsonProperty("day_of_week")]
+        public string DayOfWeek { get; set; }
+
+        [JsonProperty("day_of_year")]
+        public long? DayOfYear { get; set; }
+
+        [JsonProperty("iso_week")]
+        public string IsoWeek { get; set; }
+
+        [JsonProperty("utc_offset")]
+        public string UtcOffset { get; set; }
+
+        [JsonProperty("utc_offset_seconds")]
+        public long? UtcOffsetSeconds { get; set; }
+
+        [JsonProperty("abbreviation")]
+        public string Abbreviation { get; set; }
+
+        [JsonProperty("is_dst")]
+        public bool? IsDst { get; set; }
     }
 
     public partial class Premium

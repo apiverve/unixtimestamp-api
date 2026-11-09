@@ -68,7 +68,8 @@ namespace APIVerve.API.UnixTimestampConverter
         private static readonly Dictionary<string, ValidationRule> _validationRules = new Dictionary<string, ValidationRule>
         {
             { "timestamp", new ValidationRule { Type = "string", Required = true, Format = "timestamp" } },
-            { "format", new ValidationRule { Type = "string", Required = false } }
+            { "format", new ValidationRule { Type = "string", Required = false } },
+            { "timezone", new ValidationRule { Type = "string", Required = false, Format = "timezone" } }
         };
 
         /// <summary>Format validation patterns</summary>

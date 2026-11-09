@@ -1,7 +1,7 @@
 Unix Timestamp Converter API
 ============
 
-Unix Timestamp Converter converts Unix timestamps into formatted dates and parses ISO 8601 strings back into epoch seconds. Responses break down dates into ISO 8601, RFC 2822, simple time strings, and individual calendar components like year, month, and hour.
+Unix Timestamp Converter converts Unix timestamps into formatted dates and parses ISO 8601 strings back into epoch seconds. Responses break down dates into ISO 8601, RFC 2822, simple time strings, individual calendar components like year, month and hour, plus the day of the year. Paid plans add the ISO week, and an IANA timezone to also get the same moment in local time with its UTC offset, abbreviation and daylight saving flag.
 
 
 [![NuGet version](https://img.shields.io/nuget/v/APIVerve.API.UnixTimestampConverter.svg)](https://www.nuget.org/packages/APIVerve.API.UnixTimestampConverter)
@@ -61,7 +61,8 @@ class Program
 
         var queryOptions = new UnixTimestampConverterQueryOptions {
             Timestamp = "1609459200",
-            Format = "seconds"
+            Format = "seconds",
+            Timezone = "America/New_York"
         };
 
         // Make the API call
@@ -126,7 +127,8 @@ public class Example
 
         var queryOptions = new UnixTimestampConverterQueryOptions {
             Timestamp = "1609459200",
-            Format = "seconds"
+            Format = "seconds",
+            Timezone = "America/New_York"
         };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
@@ -159,7 +161,8 @@ public class Example
 
         var queryOptions = new UnixTimestampConverterQueryOptions {
             Timestamp = "1609459200",
-            Format = "seconds"
+            Format = "seconds",
+            Timezone = "America/New_York"
         };
 
         var response = apiClient.Execute(queryOptions);
@@ -197,7 +200,8 @@ public class Example
 
         var queryOptions = new UnixTimestampConverterQueryOptions {
             Timestamp = "1609459200",
-            Format = "seconds"
+            Format = "seconds",
+            Timezone = "America/New_York"
         };
 
         try
@@ -254,7 +258,8 @@ public class Example
 
         var queryOptions = new UnixTimestampConverterQueryOptions {
             Timestamp = "1609459200",
-            Format = "seconds"
+            Format = "seconds",
+            Timezone = "America/New_York"
         };
 
         try
@@ -296,7 +301,8 @@ apiClient.AddCustomHeader("X-Request-ID", Guid.NewGuid().ToString());
 
 var queryOptions = new UnixTimestampConverterQueryOptions {
     Timestamp = "1609459200",
-    Format = "seconds"
+    Format = "seconds",
+    Timezone = "America/New_York"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -323,7 +329,8 @@ apiClient.SetLogger(message =>
 
 var queryOptions = new UnixTimestampConverterQueryOptions {
     Timestamp = "1609459200",
-    Format = "seconds"
+    Format = "seconds",
+    Timezone = "America/New_York"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -342,7 +349,8 @@ apiClient.SetRetryDelay(1500);        // Wait 1.5 seconds between retries (defau
 
 var queryOptions = new UnixTimestampConverterQueryOptions {
     Timestamp = "1609459200",
-    Format = "seconds"
+    Format = "seconds",
+    Timezone = "America/New_York"
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -355,7 +363,8 @@ The API client implements `IDisposable` for proper resource cleanup:
 ```csharp
 var queryOptions = new UnixTimestampConverterQueryOptions {
     Timestamp = "1609459200",
-    Format = "seconds"
+    Format = "seconds",
+    Timezone = "America/New_York"
 };
 
 using (var apiClient = new UnixTimestampConverterAPIClient("[YOUR_API_KEY]"))
@@ -377,7 +386,7 @@ using (var apiClient = new UnixTimestampConverterAPIClient("[YOUR_API_KEY]"))
   "data": {
     "timestamp": 1609459200,
     "timestamp_format": "seconds",
-    "iso_8601": "2021-01-01T00:00:00Z",
+    "iso_8601": "2021-01-01T00:00:00.000Z",
     "rfc_2822": "Fri, 01 Jan 2021 00:00:00 GMT",
     "date": "1/1/2021",
     "time": "12:00:00 AM",
@@ -390,7 +399,28 @@ using (var apiClient = new UnixTimestampConverterAPIClient("[YOUR_API_KEY]"))
     "minute": 0,
     "second": 0,
     "day_of_week": "Friday",
-    "timezone": "UTC"
+    "timezone": "UTC",
+    "day_of_year": 1,
+    "iso_week": "2020-W53",
+    "local": {
+      "timezone": "America/New_York",
+      "iso_8601": "2020-12-31T19:00:00-05:00",
+      "date": "12/31/2020",
+      "time": "7:00:00 PM",
+      "year": 2020,
+      "month": 12,
+      "day": 31,
+      "hour": 19,
+      "minute": 0,
+      "second": 0,
+      "day_of_week": "Thursday",
+      "day_of_year": 366,
+      "iso_week": "2020-W53",
+      "utc_offset": "-05:00",
+      "utc_offset_seconds": -18000,
+      "abbreviation": "EST",
+      "is_dst": false
+    }
   }
 }
 ```

@@ -21,5 +21,11 @@ namespace APIVerve.API.UnixTimestampConverter
         /// </summary>
         [JsonProperty("format")]
         public string Format { get; set; }
+
+        /// <summary>
+        /// IANA timezone (or fixed UTC offset) to also show the moment in, returned as a local block
+        /// </summary>
+        [JsonProperty("timezone")]
+        public string Timezone { get; set; }
     }
 }
