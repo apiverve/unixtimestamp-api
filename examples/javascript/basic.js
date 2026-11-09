@@ -16,7 +16,8 @@ async function callUnixTimestampConverterAPI() {
     // Query parameters
     const params &#x3D; new URLSearchParams({
             timestamp: &#x27;1609459200&#x27;,
-            format: &#x27;seconds&#x27;
+            format: &#x27;seconds&#x27;,
+            timezone: &#x27;America/New_York&#x27;
         });
 
     const response = await fetch(`${API_URL}?${params}`, {

@@ -18,7 +18,7 @@ def call_unixtimestamp_api():
     """
     try:
         # Query parameters
-        params &#x3D; {&#x27;timestamp&#x27;: &#x27;1609459200&#x27;, &#x27;format&#x27;: &#x27;seconds&#x27;}
+        params &#x3D; {&#x27;timestamp&#x27;: &#x27;1609459200&#x27;, &#x27;format&#x27;: &#x27;seconds&#x27;, &#x27;timezone&#x27;: &#x27;America/New_York&#x27;}
 
         headers = {
             'x-api-key': API_KEY

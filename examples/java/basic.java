@@ -16,6 +16,7 @@ public class BasicExample {
             Map&lt;String, Object&gt; parameters &#x3D; new HashMap&lt;&gt;();
         parameters.put(&quot;timestamp&quot;, &quot;1609459200&quot;);
         parameters.put(&quot;format&quot;, &quot;seconds&quot;);
+        parameters.put(&quot;timezone&quot;, &quot;America/New_York&quot;);
 
             // Execute the API request
             APIResponse response = client.execute(parameters);

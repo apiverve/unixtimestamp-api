@@ -30,7 +30,7 @@ namespace APIVerve.Examples
                 client.DefaultRequestHeaders.Add("x-api-key", API_KEY);
 
                 // Query parameters
-                var queryParams &#x3D; new Dictionary&lt;string, string&gt; { [&quot;timestamp&quot;] &#x3D; &quot;1609459200&quot;, [&quot;format&quot;] &#x3D; &quot;seconds&quot; };
+                var queryParams &#x3D; new Dictionary&lt;string, string&gt; { [&quot;timestamp&quot;] &#x3D; &quot;1609459200&quot;, [&quot;format&quot;] &#x3D; &quot;seconds&quot;, [&quot;timezone&quot;] &#x3D; &quot;America/New_York&quot; };
 
                 var queryString = string.Join("&",
                     queryParams.Select(kvp => $"{kvp.Key}={Uri.EscapeDataString(kvp.Value)}"));
