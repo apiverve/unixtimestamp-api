@@ -15,7 +15,7 @@ use APIVerve\Unixtimestamp\Exceptions\ValidationException;
  * @example Basic usage
  * ```php
  * $client = new Client('your_api_key');
- * $response = $client->execute(['timestamp' => '1609459200', 'format' => 'seconds']);
+ * $response = $client->execute(['timestamp' => '1609459200', 'format' => 'seconds', 'timezone' => 'America/New_York']);
  * print_r($response);
  * ```
  *
@@ -35,7 +35,8 @@ class Client
      */
     private const VALIDATION_RULES = [
         'timestamp' => ['type' => 'string', 'required' => true, 'format' => 'timestamp'],
-        'format' => ['type' => 'string', 'required' => false]
+        'format' => ['type' => 'string', 'required' => false],
+        'timezone' => ['type' => 'string', 'required' => false, 'format' => 'timezone']
     ];
 
     /**
