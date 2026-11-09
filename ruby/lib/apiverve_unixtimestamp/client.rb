@@ -10,7 +10,7 @@ module APIVerve
     #
     # @example Basic usage
     #   client = APIVerve::Unixtimestamp::Client.new(api_key: "your_api_key")
-    #   response = client.execute({ timestamp: "1609459200", format: "seconds" })
+    #   response = client.execute({ timestamp: "1609459200", format: "seconds", timezone: "America/New_York" })
     #   puts response
     #
     # @see https://apiverve.com/marketplace/unixtimestamp?utm_source=ruby&utm_medium=referral&utm_content=readme
@@ -19,7 +19,7 @@ module APIVerve
       DEFAULT_TIMEOUT = 30
 
       # Validation rules for parameters
-      VALIDATION_RULES = { 'timestamp' => { type: 'string', required: true, format: 'timestamp' }, 'format' => { type: 'string', required: false } }
+      VALIDATION_RULES = { 'timestamp' => { type: 'string', required: true, format: 'timestamp' }, 'format' => { type: 'string', required: false }, 'timezone' => { type: 'string', required: false, format: 'timezone' } }
 
       # Format validation patterns
       FORMAT_PATTERNS = {
