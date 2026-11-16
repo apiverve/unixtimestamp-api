@@ -23,7 +23,7 @@ namespace APIVerve.API.UnixTimestampConverter
         public string Format { get; set; }
 
         /// <summary>
-        /// IANA timezone (or fixed UTC offset) to also show the moment in, returned as a local block
+        /// IANA timezone (e.g. America/New_York) or a UTC/GMT-prefixed fixed offset (e.g. UTC+05:30) to also show the moment in, returned as a local block
         /// </summary>
         [JsonProperty("timezone")]
         public string Timezone { get; set; }
