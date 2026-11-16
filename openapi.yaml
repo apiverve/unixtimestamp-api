@@ -48,8 +48,9 @@ paths:
             type: string
           required: false
           description: >-
-            IANA timezone (or fixed UTC offset) to also show the moment in,
-            returned as a local block
+            IANA timezone (e.g. America/New_York) or a UTC/GMT-prefixed fixed
+            offset (e.g. UTC+05:30) to also show the moment in, returned as a
+            local block
           example: America/New_York
       responses:
         '200':
